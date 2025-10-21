@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Keyword configuration for content filtering and discovery",
+  "version": "1.0",
+  "task_id": "example-task",
+  "last_updated": "2025-01-15T00:00:00Z",
+
+  "categories": {
+    "core_topics": {
+      "description": "Primary topic keywords - highest priority",
+      "confidence": 0.95,
+      "keywords": [
+        "large language model",
+        "transformer",
+        "attention mechanism",
+        "fine-tuning",
+        "prompt engineering",
+        "retrieval augmented generation"
+      ]
+    },
+
+    "technologies": {
+      "description": "Specific technologies and frameworks",
+      "confidence": 0.90,
+      "keywords": [
+        "pytorch",
+        "tensorflow",
+        "huggingface transformers",
+        "langchain",
+        "llamaindex",
+        "anthropic claude"
+      ]
+    },
+
+    "methods": {
+      "description": "Techniques and methodologies",
+      "confidence": 0.85,
+      "keywords": [
+        "few-shot learning",
+        "zero-shot learning",
+        "transfer learning",
+        "reinforcement learning from human feedback",
+        "chain of thought",
+        "self-consistency"
+      ]
+    },
+
+    "applications": {
+      "description": "Application domains and use cases",
+      "confidence": 0.80,
+      "keywords": [
+        "code generation",
+        "question answering",
+        "text summarization",
+        "machine translation",
+        "sentiment analysis",
+        "named entity recognition"
+      ]
+    },
+
+    "exclude": {
+      "description": "Keywords to exclude from results",
+      "confidence": 1.0,
+      "keywords": [
+        "deprecated",
+        "outdated",
+        "legacy",
+        "tutorial for beginners",
+        "basic introduction"
+      ]
+    }
+  },
+
+  "auto_discovery": {
+    "enabled": true,
+    "min_frequency": 3,
+    "min_confidence": 0.85,
+    "recently_discovered": [
+      {
+        "keyword": "constitutional ai",
+        "frequency": 5,
+        "confidence": 0.92,
+        "first_seen": "2025-01-10",
+        "category_suggestion": "methods"
+      }
+    ]
+  },
+
+  "notes": [
+    "Keywords are case-insensitive during matching",
+    "Confidence scores affect search result ranking",
+    "Auto-discovered keywords need manual review before promotion",
+    "Exclude keywords have highest priority"
+  ]
+}

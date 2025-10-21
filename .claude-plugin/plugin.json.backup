@@ -1,0 +1,82 @@
+{
+  "name": "content-discovery",
+  "display_name": "Content Discovery",
+  "version": "1.0.0",
+  "description": "AI-driven content discovery framework that automatically discovers, analyzes, and publishes quality content from ArXiv, GitHub, HuggingFace, and more",
+  "author": {
+    "name": "longkeyy",
+    "url": "https://github.com/longkeyy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/longkeyy/claude-discover"
+  },
+  "license": "MIT",
+  "keywords": [
+    "content-discovery",
+    "arxiv",
+    "github",
+    "huggingface",
+    "ai",
+    "automation",
+    "research",
+    "papers",
+    "blog"
+  ],
+  "main": {
+    "commands": [
+      "commands/discover.md",
+      "commands/mission.md"
+    ],
+    "skills": [
+      "skills/content-discovery"
+    ]
+  },
+  "requirements": {
+    "claude_code": ">=1.0.0"
+  },
+  "configuration": {
+    "env_variables": [
+      {
+        "name": "HEXO_PATH",
+        "description": "Path to Hexo blog directory",
+        "required": false
+      },
+      {
+        "name": "TELEGRAM_BOT_TOKEN",
+        "description": "Telegram bot token for publishing",
+        "required": false
+      },
+      {
+        "name": "TELEGRAM_CHANNEL_ID",
+        "description": "Telegram channel ID for publishing",
+        "required": false
+      },
+      {
+        "name": "DISCORD_WEBHOOK_URL",
+        "description": "Discord webhook URL for publishing",
+        "required": false
+      }
+    ]
+  },
+  "dependencies": {
+    "mcp_servers": {
+      "recommended": [
+        "mcp__arxiv",
+        "mcp__github",
+        "mcp__huggingface"
+      ]
+    },
+    "external": {
+      "optional": [
+        "hexo"
+      ]
+    }
+  },
+  "documentation": {
+    "readme": "README.md",
+    "changelog": "CHANGELOG.md",
+    "publishing": "PUBLISHING.md",
+    "architecture": "../ARCHITECTURE.md"
+  }
+}

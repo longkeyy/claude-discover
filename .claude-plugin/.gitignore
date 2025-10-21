@@ -1,0 +1,41 @@
+# Environment variables
+.env
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+sessions/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Node modules (if any)
+node_modules/
+
+# Python cache (if any)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Generated files
+config/tasks.index.yaml
+posts/
+config/.archived/

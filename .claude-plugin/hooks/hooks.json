@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "description": "Load project context and task status",
+            "command": "../scripts/hooks/session_start.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "description": "Validate JSON files after write",
+            "command": "jq -r '.tool_input.file_path' | xargs -I {} sh -c 'if [[ {} =~ \\.json$ ]]; then jq empty {} 2>/dev/null || echo \"⚠️ Invalid JSON: {}\"; fi'"
+          }
+        ]
+      }
+    ]
+  }
+}

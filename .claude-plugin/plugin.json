@@ -1,0 +1,142 @@
+{
+  "name": "content-discovery",
+  "display_name": "Content Discovery",
+  "version": "1.0.0",
+  "description": "AI-powered content discovery and publishing automation. Automatically discovers, analyzes, and publishes high-quality content from ArXiv papers, GitHub repositories, and HuggingFace models to your blog, Telegram, or Discord.",
+  "author": {
+    "name": "longkeyy",
+    "url": "https://github.com/longkeyy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/longkeyy/claude-discover"
+  },
+  "homepage": "https://github.com/longkeyy/claude-discover#readme",
+  "license": "MIT",
+  "keywords": [
+    "content-discovery",
+    "arxiv",
+    "github",
+    "huggingface",
+    "ai",
+    "automation",
+    "research",
+    "papers",
+    "blog",
+    "publishing",
+    "mcp",
+    "claude-code"
+  ],
+  "commands": [
+    {
+      "path": "./commands/discover.md",
+      "name": "discover",
+      "description": "Execute content discovery tasks with parallel/serial modes"
+    },
+    {
+      "path": "./commands/mission.md",
+      "name": "mission",
+      "description": "Manage discovery tasks - create, configure, enable/disable"
+    }
+  ],
+  "skills": [
+    {
+      "path": "./skills/content-discovery",
+      "name": "content-discovery",
+      "description": "Core content discovery workflow with AI-powered filtering and multi-channel publishing"
+    }
+  ],
+  "requirements": {
+    "claude_code": ">=2.0.12",
+    "system": {
+      "bash": ">=4.0",
+      "jq": "recommended for JSON processing",
+      "curl": "required for image downloads"
+    }
+  },
+  "configuration": {
+    "env_variables": [
+      {
+        "name": "HEXO_PATH",
+        "description": "Path to your Hexo blog directory (e.g., ~/my-blog)",
+        "required": false,
+        "example": "/Users/username/hexo-blog"
+      },
+      {
+        "name": "TELEGRAM_BOT_TOKEN",
+        "description": "Telegram bot token from @BotFather for publishing to Telegram channels",
+        "required": false,
+        "example": "1234567890:ABCdefGHIjklMNOpqrsTUVwxyz"
+      },
+      {
+        "name": "TELEGRAM_CHANNEL_ID",
+        "description": "Telegram channel ID (with @) or numeric ID for publishing",
+        "required": false,
+        "example": "@my_channel or -1001234567890"
+      },
+      {
+        "name": "DISCORD_WEBHOOK_URL",
+        "description": "Discord webhook URL for publishing to Discord channels",
+        "required": false,
+        "example": "https://discord.com/api/webhooks/..."
+      }
+    ],
+    "files": {
+      "config/tasks/": "Task configuration files (*.md)",
+      "config/keywords/": "Keyword files for content filtering (*.json)",
+      "config/tasks.index.yaml": "Auto-generated task index"
+    }
+  },
+  "dependencies": {
+    "mcp_servers": {
+      "recommended": [
+        {
+          "name": "mcp__hf-mcp-server",
+          "description": "HuggingFace MCP server for models and datasets",
+          "url": "https://github.com/huggingface/hf-mcp-server"
+        }
+      ],
+      "optional": [
+        {
+          "name": "mcp__arxiv",
+          "description": "ArXiv paper search (fallback to WebSearch if not available)"
+        },
+        {
+          "name": "mcp__github",
+          "description": "GitHub repository search (fallback to WebSearch if not available)"
+        }
+      ]
+    },
+    "external": {
+      "optional": [
+        {
+          "name": "hexo",
+          "description": "Static blog generator for Hexo publishing",
+          "install": "npm install -g hexo-cli"
+        }
+      ]
+    }
+  },
+  "features": [
+    "🔍 Multi-source discovery: ArXiv, GitHub, HuggingFace",
+    "🤖 AI-powered semantic deduplication",
+    "🎯 Smart content filtering with keyword management",
+    "📝 High-quality Chinese summaries generation",
+    "🖼️ Automatic image extraction and download",
+    "📤 Multi-channel publishing (Hexo/Telegram/Discord)",
+    "✅ Quality validation and verification",
+    "🔄 Parallel execution for faster processing",
+    "📊 Task management and status tracking"
+  ],
+  "documentation": {
+    "readme": "README.md",
+    "changelog": "CHANGELOG.md",
+    "publishing": "PUBLISHING.md",
+    "architecture": "../ARCHITECTURE.md",
+    "quick_start": "#quick-start-in-readme"
+  },
+  "support": {
+    "issues": "https://github.com/longkeyy/claude-discover/issues",
+    "discussions": "https://github.com/longkeyy/claude-discover/discussions"
+  }
+}

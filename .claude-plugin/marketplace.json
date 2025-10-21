@@ -1,0 +1,97 @@
+{
+  "marketplace": {
+    "name": "Content Discovery Marketplace",
+    "version": "1.0.0",
+    "description": "Official marketplace for Content Discovery plugin",
+    "url": "https://github.com/longkeyy/claude-discover"
+  },
+  "plugins": [
+    {
+      "id": "content-discovery",
+      "name": "Content Discovery",
+      "version": "1.0.0",
+      "description": "AI-driven content discovery framework that automatically discovers, analyzes, and publishes quality content from ArXiv, GitHub, HuggingFace, and more",
+      "author": {
+        "name": "longkeyy",
+        "url": "https://github.com/longkeyy"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/longkeyy/claude-discover"
+      },
+      "homepage": "https://github.com/longkeyy/claude-discover",
+      "license": "MIT",
+      "keywords": [
+        "content-discovery",
+        "arxiv",
+        "github",
+        "huggingface",
+        "ai",
+        "automation",
+        "research",
+        "papers",
+        "blog",
+        "mcp"
+      ],
+      "categories": [
+        "productivity",
+        "automation",
+        "research",
+        "content"
+      ],
+      "installation": {
+        "url": "https://github.com/longkeyy/claude-discover/archive/refs/heads/main.zip",
+        "path": ".claude-plugin"
+      },
+      "requirements": {
+        "claude_code": ">=1.0.0"
+      },
+      "features": [
+        "AI-powered semantic deduplication",
+        "Multi-source content discovery (ArXiv, GitHub, HuggingFace)",
+        "MCP-first architecture with WebSearch fallback",
+        "Multi-channel publishing (Hexo, Telegram, Discord)",
+        "Automatic keyword optimization",
+        "Parallel task execution",
+        "Quality assessment and filtering",
+        "Image extraction and processing"
+      ],
+      "commands": [
+        {
+          "name": "/mission",
+          "description": "Task management - create, configure, and manage discovery tasks",
+          "usage": "/mission [show|add|update|enable|disable|delete] [task-id]"
+        },
+        {
+          "name": "/discover",
+          "description": "Execute discovery tasks - scan, analyze, and publish content",
+          "usage": "/discover [task-id|all] [--parallel|--serial]"
+        }
+      ],
+      "skills": [
+        {
+          "name": "content-discovery",
+          "description": "Automated content discovery workflow with AI filtering and multi-channel publishing"
+        }
+      ],
+      "screenshots": [],
+      "documentation": {
+        "readme": "README.md",
+        "changelog": "CHANGELOG.md",
+        "publishing": "PUBLISHING.md",
+        "architecture": "../ARCHITECTURE.md"
+      },
+      "support": {
+        "issues": "https://github.com/longkeyy/claude-discover/issues",
+        "discussions": "https://github.com/longkeyy/claude-discover/discussions",
+        "email": ""
+      },
+      "stats": {
+        "downloads": 0,
+        "stars": 0,
+        "created_at": "2025-10-20",
+        "updated_at": "2025-10-20"
+      }
+    }
+  ]
+}

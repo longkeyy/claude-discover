@@ -1,0 +1,79 @@
+name: Release Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up environment
+        run: |
+          # Install jq for JSON validation
+          sudo apt-get update
+          sudo apt-get install -y jq zip
+      
+      - name: Get version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+      
+      - name: Validate plugin.json
+        run: |
+          jq empty .claude-plugin/plugin.json
+          PLUGIN_VERSION=$(jq -r '.version' .claude-plugin/plugin.json)
+          if [ "$PLUGIN_VERSION" != "${{ steps.version.outputs.version }}" ]; then
+            echo "Error: Tag version (${{ steps.version.outputs.version }}) doesn't match plugin.json version ($PLUGIN_VERSION)"
+            exit 1
+          fi
+      
+      - name: Build plugin
+        run: |
+          ./scripts/build-plugin.sh
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            dist/content-discovery-*.zip
+            dist/content-discovery-*.zip.sha256
+          body: |
+            ## Content Discovery Plugin v${{ steps.version.outputs.version }}
+            
+            ### Installation
+            
+            ```bash
+            # Install from GitHub release
+            /plugin install https://github.com/${{ github.repository }}/releases/download/v${{ steps.version.outputs.version }}/content-discovery-${{ steps.version.outputs.version }}.zip
+            
+            # Or clone and install locally
+            git clone https://github.com/${{ github.repository }}.git
+            cd claude-discover
+            /plugin install .claude-plugin
+            ```
+            
+            ### What's Changed
+            
+            See [CHANGELOG.md](.claude-plugin/CHANGELOG.md) for details.
+            
+            ### Documentation
+            
+            - [README](.claude-plugin/README.md)
+            - [Quick Start](.claude-plugin/QUICKSTART.md)
+            - [Installation Guide](.claude-plugin/INSTALL.md)
+            - [Architecture](ARCHITECTURE.md)
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
