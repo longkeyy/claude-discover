@@ -1,6 +1,6 @@
 ---
 description: Execute discovery task - scan, analyze, and publish content
-argument-hint: [task-id or 'all'] [--parallel|--serial]
+argument-hint: "[task-id or 'all'] [--parallel|--serial]"
 ---
 
 # Content Discovery Executor

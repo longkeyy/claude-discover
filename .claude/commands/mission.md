@@ -1,6 +1,6 @@
 ---
 description: Task management - create, configure, and manage discovery tasks
-argument-hint: [show | add | update <task-id> | enable <task-id> | disable <task-id> | delete <task-id>]
+argument-hint: "[show | add | update <task-id> | enable <task-id> | disable <task-id> | delete <task-id>]"
 ---
 
 # Task Management
