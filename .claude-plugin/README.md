@@ -203,26 +203,31 @@ Install these MCP servers for better performance:
 This plugin follows Claude Code best practices with **Command + Skill** pattern:
 
 ```
-.claude-plugin/
-├── commands/              # User-triggered entry points
+claude-discover/
+├── commands/              # User-triggered entry points (at root)
 │   ├── discover.md       # /discover command
 │   └── mission.md        # /mission command
-├── skills/               # AI-invoked capabilities
-│   └── content-discovery/ # Core discovery workflow
-│       └── skill.md      # Skill definition
-├── hooks/                # Automation hooks
-│   ├── hooks.json        # Hook configuration
-│   └── scripts/
-│       └── session_start.sh
-├── examples/             # Configuration templates
-│   ├── task-arxiv-example.md
-│   ├── task-github-example.md
-│   ├── keywords-example.json
-│   └── .env.example
-├── scripts/              # Build & deployment
-│   ├── hooks/
-│   └── ...
-└── plugin.json           # Plugin manifest
+├── skills/               # AI-invoked capabilities (at root)
+│   └── content-discovery/
+│       └── skill.md
+├── hooks/                # Automation hooks (at root)
+│   └── hooks.json
+├── .claude-plugin/       # Plugin package directory
+│   ├── plugin.json       # Plugin manifest
+│   ├── README.md         # This file
+│   ├── CHANGELOG.md      # Version history
+│   ├── examples/         # Configuration templates
+│   │   ├── task-arxiv-example.md
+│   │   ├── task-github-example.md
+│   │   ├── keywords-example.json
+│   │   └── .env.example
+│   └── scripts/          # Helper scripts
+│       ├── discover/
+│       ├── mission/
+│       └── hooks/
+└── .claude/              # Local development (not packaged)
+    ├── commands/
+    └── skills/
 ```
 
 **Key design principles**:
