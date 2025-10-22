@@ -5,7 +5,28 @@ All notable changes to the Content Discovery plugin will be documented in this f
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2025-10-20
+## [2.0.0] - 2025-01-22
+
+### Changed
+- **BREAKING**: Restructured plugin directories to comply with official Claude Code standards
+  - Moved `commands/` from `.claude-plugin/` to plugin root
+  - Moved `skills/` from `.claude-plugin/` to plugin root
+  - Moved `hooks/` from `.claude-plugin/` to plugin root
+  - Updated all script path references to `.claude-plugin/scripts/`
+  - Synced `.claude/` local development configuration
+
+### Migration Guide
+If you have the plugin installed:
+1. Uninstall old version: `/plugin uninstall content-discovery`
+2. Install new version: `/plugin install https://github.com/longkeyy/claude-discover`
+3. Existing task configurations and data remain compatible
+
+### Technical Details
+- Plugin structure now 100% compliant with [official standards](https://docs.claude.com/en/docs/claude-code/plugins)
+- All validation checks pass
+- No functional changes to commands or workflows
+
+## [1.0.0] - 2025-01-20
 
 ### Added
 - Initial plugin release

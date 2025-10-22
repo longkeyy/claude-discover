@@ -4,7 +4,7 @@
 
 [![Claude Code](https://img.shields.io/badge/Claude_Code->=2.0.12-blue)](https://docs.claude.com/en/docs/claude-code)
 [![License](https://img.shields.io/badge/license-MIT-green)](../LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-orange)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.0.0-orange)](./CHANGELOG.md)
 
 [English](./README.md) | [中文文档](./README_zh-CN.md)
 
