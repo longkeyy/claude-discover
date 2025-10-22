@@ -655,11 +655,12 @@ EOF
 **步骤2: 团队成员安装**
 
 ```bash
-# 在团队 git 仓库中
-git clone https://github.com/company/plugins
-cd my-project
-/plugin marketplace add ../plugins
-/plugin install company-standards@plugins
+# 方式1: 从 GitHub 安装
+/plugin install https://github.com/company/team-standards
+
+# 方式2: 从本地路径安装
+git clone https://github.com/company/team-standards.git
+/plugin install ./team-standards
 ```
 
 ### 场景2: 个人效率工作流

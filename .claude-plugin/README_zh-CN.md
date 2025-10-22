@@ -2,6 +2,12 @@
 
 > AI 驱动的内容发现框架，自动从 ArXiv、GitHub、HuggingFace 等平台发现、分析和发布优质内容。
 
+[![Claude Code](https://img.shields.io/badge/Claude_Code->=2.0.12-blue)](https://docs.claude.com/en/docs/claude-code)
+[![License](https://img.shields.io/badge/license-MIT-green)](../LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-orange)](./CHANGELOG.md)
+
+[English](./README.md) | [中文文档](./README_zh-CN.md)
+
 ## 📖 目录
 
 - [这是什么](#这是什么)
@@ -60,21 +66,13 @@ Content Discovery 是一个 Claude Code 插件，可以帮你：
 
 ## 如何安装
 
-### 方式一：从 Marketplace 安装（推荐）
+### 方式一：从 GitHub 安装（推荐）
 
 ```bash
-/plugin install content-discovery
+/plugin install https://github.com/longkeyy/claude-discover
 ```
 
-> 当 Claude Code Marketplace 上线后可用
-
-### 方式二：从 GitHub 安装
-
-```bash
-/plugin install https://github.com/longkeyy/claude-discover/releases/latest/download/content-discovery.zip
-```
-
-### 方式三：从本地安装（开发/测试）
+### 方式二：从本地安装（开发/测试）
 
 ```bash
 # 1. 克隆项目

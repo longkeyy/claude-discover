@@ -25,10 +25,7 @@
 ### Installation
 
 ```bash
-# Install from marketplace (when available)
-/plugin install content-discovery
-
-# Or install from GitHub
+# Install from GitHub (recommended)
 /plugin install https://github.com/longkeyy/claude-discover
 
 # Or install locally for development
