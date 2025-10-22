@@ -50,7 +50,7 @@ argument-hint: "[task-id or 'all'] [--parallel|--serial]"
 ## Step 1: 前置检查
 
 ```bash
-bash scripts/discover/check.sh || exit 1
+bash .claude-plugin/scripts/discover/check.sh || exit 1
 ```
 
 ---
@@ -72,7 +72,7 @@ elif [[ "$ARGUMENTS" =~ --parallel ]]; then
 fi
 
 # 解析任务列表
-TASKS_TO_RUN=$(bash scripts/discover/parse_tasks.sh "$TASK_ARGS")
+TASKS_TO_RUN=$(bash .claude-plugin/scripts/discover/parse_tasks.sh "$TASK_ARGS")
 
 # 检查是否有任务
 if [ -z "$TASKS_TO_RUN" ]; then
@@ -191,7 +191,7 @@ for task_id in $TASKS_TO_RUN; do
   SESSION_POSTS=$(find "posts/${task_id}/" -name "*.json" -mmin -30 2>/dev/null | wc -l | xargs)
 
   # 更新索引
-  bash scripts/discover/update_index.sh "$task_id" "$SESSION_POSTS"
+  bash .claude-plugin/scripts/discover/update_index.sh "$task_id" "$SESSION_POSTS"
 done
 
 echo ""
@@ -274,7 +274,7 @@ echo ""
 
 - **Skill 驱动**: 使用 content-discovery skill 处理所有发现逻辑
 - **并行优先**: 默认并行执行，充分利用 Claude Code 的多 Skill 能力
-- **脚本化**: 使用 scripts/discover/ 下的独立脚本，便于维护和测试
+- **脚本化**: 使用 .claude-plugin/scripts/discover/ 下的独立脚本，便于维护和测试
 - **MCP 优先**: 自动检测并优先使用 MCP 服务
 - **AI 语义去重**: 通过文件名语义判断，不依赖 URL
 - **自动关键词**: 每次运行自动发现新关键词

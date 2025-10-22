@@ -169,7 +169,7 @@ description: |
 3. **下载到本地（Bash 工具）**
    ```bash
    # Agent 调用 Bash 工具
-   source scripts/discover/image_utils.sh
+   source .claude-plugin/scripts/discover/image_utils.sh
 
    # 创建目录
    IMAGE_DIR=$(create_image_dir "{task_id}" "{slug}")
@@ -226,7 +226,7 @@ description: |
    - 图片无效: 使用 validate_image 检查，清理失败文件
 
 **工具集**:
-- `scripts/discover/image_utils.sh` - Bash 辅助函数
+- `.claude-plugin/scripts/discover/image_utils.sh` - Bash 辅助函数
 - Agent 的 WebFetch/Read - 页面内容获取
 - Agent 的 Bash - 执行下载命令
 - Agent 的 Write - 更新 JSON
@@ -398,10 +398,10 @@ description: |
 ## 工具和脚本
 
 可用的辅助脚本：
-- `scripts/discover/image_utils.sh` - 图片下载和处理
-- `scripts/discover/update_index.sh` - 更新任务索引
-- `scripts/discover/check.sh` - 前置环境检查
-- `scripts/discover/parse_tasks.sh` - 任务解析
+- `.claude-plugin/scripts/discover/image_utils.sh` - 图片下载和处理
+- `.claude-plugin/scripts/discover/update_index.sh` - 更新任务索引
+- `.claude-plugin/scripts/discover/check.sh` - 前置环境检查
+- `.claude-plugin/scripts/discover/parse_tasks.sh` - 任务解析
 
 ## 并行执行支持
 

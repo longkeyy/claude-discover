@@ -21,37 +21,37 @@ TASK_ID=$(echo "$ARGUMENTS" | awk '{print $2}')
 
 # 默认命令是 show
 if [[ -z "$COMMAND" || "$COMMAND" =~ ^(show|list|ls|显示|查看)$ ]]; then
-    bash scripts/mission/show.sh
+    bash .claude-plugin/scripts/mission/show.sh
     exit $?
 fi
 
 # add - 创建新任务
 if [[ "$COMMAND" =~ ^(add|create|new|添加|创建)$ ]]; then
-    bash scripts/mission/add.sh
+    bash .claude-plugin/scripts/mission/add.sh
     exit $?
 fi
 
 # update - 更新任务配置
 if [[ "$COMMAND" =~ ^(update|edit|modify|更新|编辑|修改)$ ]]; then
-    bash scripts/mission/update.sh "$TASK_ID"
+    bash .claude-plugin/scripts/mission/update.sh "$TASK_ID"
     exit $?
 fi
 
 # enable - 启用任务
 if [[ "$COMMAND" =~ ^(enable|启用|激活)$ ]]; then
-    bash scripts/mission/enable.sh "$TASK_ID"
+    bash .claude-plugin/scripts/mission/enable.sh "$TASK_ID"
     exit $?
 fi
 
 # disable - 禁用任务
 if [[ "$COMMAND" =~ ^(disable|pause|禁用|暂停)$ ]]; then
-    bash scripts/mission/disable.sh "$TASK_ID"
+    bash .claude-plugin/scripts/mission/disable.sh "$TASK_ID"
     exit $?
 fi
 
 # delete - 删除任务（归档）
 if [[ "$COMMAND" =~ ^(delete|remove|rm|删除)$ ]]; then
-    bash scripts/mission/delete.sh "$TASK_ID"
+    bash .claude-plugin/scripts/mission/delete.sh "$TASK_ID"
     exit $?
 fi
 
@@ -80,7 +80,7 @@ exit 1
 
 ## 脚本说明
 
-所有任务管理逻辑都在 `scripts/mission/` 目录下：
+所有任务管理逻辑都在 `.claude-plugin/scripts/mission/` 目录下：
 
 - **show.sh** - 显示所有任务及其状态
 - **add.sh** - 创建新任务（交互式）
@@ -112,7 +112,7 @@ config/
         ├── tasks/
         └── keywords/
 
-scripts/
+.claude-plugin/scripts/
 └── mission/
     ├── show.sh           # 显示任务列表
     ├── add.sh            # 创建新任务

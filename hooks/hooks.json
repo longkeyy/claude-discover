@@ -7,7 +7,7 @@
           {
             "type": "command",
             "description": "Load project context and task status",
-            "command": "../scripts/hooks/session_start.sh"
+            "command": ".claude-plugin/scripts/hooks/session_start.sh"
           }
         ]
       }
